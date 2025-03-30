@@ -11,6 +11,8 @@ function App() {
     date: "",
   });
 
+  const isThereProjects = projectList.length <= 0;
+
   function handleSaveProject() {
     setProjectList((prevState) => [newProject, ...prevState]);
   }
@@ -18,12 +20,15 @@ function App() {
   return (
     <main className="h-screen my-8 flex gap-8">
       <SideBar projects={projectList} />
-      {/* <LandingPage /> */}
-      <NewProject
-        onSetNewProject={setNewProject}
-        projectData={newProject}
-        onSaveProj={handleSaveProject}
-      />
+      {isThereProjects ? (
+        <LandingPage />
+      ) : (
+        <NewProject
+          onSetNewProject={setNewProject}
+          projectData={newProject}
+          onSaveProj={handleSaveProject}
+        />
+      )}
     </main>
   );
 }

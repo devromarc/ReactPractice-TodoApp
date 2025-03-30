@@ -14,37 +14,43 @@ const NewProject = ({ onSetNewProject, projectData, onSaveProj }) => {
         </button>
       </menu>
       <div>
-        <label className="text-sm font-bold uppercase text-stone-500">
-          Title
-        </label>
-        <Input
-          className="mb-2"
-          onSetNewProject={onSetNewProject}
-          value={projectData.title}
-          name="title"
-        />
+        <p>
+          <label className="text-sm font-bold uppercase text-stone-500">
+            Title
+          </label>
+          <Input
+            className="mb-2"
+            onSetNewProject={onSetNewProject}
+            value={projectData.title}
+            name="title"
+          />
+        </p>
       </div>
       <div>
-        <label className="text-sm font-bold uppercase text-stone-500">
-          Description
-        </label>
-        <Input
-          className="mb-2"
-          onSetNewProject={onSetNewProject}
-          value={projectData.description}
-          name="description"
-        />
+        <p>
+          <label className="text-sm font-bold uppercase text-stone-500">
+            Description
+          </label>
+          <Input
+            className="mb-2"
+            onSetNewProject={onSetNewProject}
+            value={projectData.description}
+            name="description"
+          />
+        </p>
       </div>
       <div>
-        <label className="text-sm font-bold uppercase text-stone-500">
-          Date
-        </label>
-        <Input
-          type="date"
-          onSetNewProject={onSetNewProject}
-          value={projectData.date}
-          name="date"
-        />
+        <p>
+          <label className="text-sm font-bold uppercase text-stone-500">
+            Date
+          </label>
+          <Input
+            type="date"
+            onSetNewProject={onSetNewProject}
+            value={projectData.date}
+            name="date"
+          />
+        </p>
       </div>
     </div>
   );
