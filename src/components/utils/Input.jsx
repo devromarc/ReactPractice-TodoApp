@@ -9,7 +9,7 @@ const Input = ({ label, textarea, onSetNewProject, ...props }) => {
     onSetNewProject((prevState) => ({ ...prevState, [name]: value }));
   }
   return (
-    <p>
+    <p className="flex flex-col gap-1 my-4">
       <label className="text-sm font-bold uppercase text-stone-500">
         {label}
       </label>

@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "/logo.png";
+import Button from "./utils/Button";
 
 const LandingPage = () => {
   return (
@@ -15,9 +16,9 @@ const LandingPage = () => {
       <p className="text-stone-400 mb-4">
         Select Project or Get Started with a New one.
       </p>
-      <button className="px-4 py-2 text-xs md:text-base rounded-md bg-stone-700 text-stone-400 hover:bg-stone-600 hover:text-stone-100">
-        Create a New Project
-      </button>
+      <p className="mt-8">
+        <Button>Create a New Project</Button>
+      </p>
     </div>
   );
 };
