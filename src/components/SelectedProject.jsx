@@ -1,8 +1,15 @@
 import React, { useRef } from "react";
 import Modal from "./utils/Modal";
+import Tasks from "../Tasks";
 
-const SelectedProject = ({ project, onDeleteProject }) => {
-  const { title, date, description, id } = project;
+const SelectedProject = ({
+  project,
+  onDeleteProject,
+  onAddTask,
+  onDeleteTask,
+  tasks,
+}) => {
+  const { title, date, description } = project;
   const modal = useRef();
   return (
     <>
@@ -13,7 +20,7 @@ const SelectedProject = ({ project, onDeleteProject }) => {
         <div className="flex justify-end gap-2">
           <button
             className="flex-1 px-4 py-2 text-xs md:text-base rounded-md bg-red-700 text-white hover:bg-red-600"
-            onClick={() => onDeleteProject(id)}
+            onClick={onDeleteProject}
           >
             Yes!
           </button>
@@ -39,7 +46,11 @@ const SelectedProject = ({ project, onDeleteProject }) => {
           <p className="mb-4 text-stone-400">{description} </p>
           <p className="text-stone-600 whitespace-pre-wrap">{date}</p>
         </header>
-        <div></div>
+        <Tasks
+          onAddTask={onAddTask}
+          onDeleteTask={onDeleteTask}
+          tasks={tasks}
+        />
       </div>
     </>
   );

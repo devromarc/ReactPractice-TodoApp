@@ -8,7 +8,19 @@ function App() {
   const [projectsState, setProjectsState] = useState({
     selectedProjectID: undefined,
     projects: [],
+    tasks: [],
   });
+
+  function handleAddTask(newTask) {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        tasks: [...prevState.tasks, newTask],
+      };
+    });
+  }
+
+  function handleDeleteTask(index) {}
 
   function handleAddingNewProject() {
     setProjectsState((prevState) => {
@@ -51,10 +63,10 @@ function App() {
   );
 
   // get the id of the selected project inside the selectedproject component and use it to make a new array that has been filtered using the id
-  function handleDeleteProject(id) {
+  function handleDeleteProject() {
     setProjectsState((prevState) => {
       const updatedProjectList = prevState.projects.filter(
-        (proj) => proj.id !== id
+        (proj) => proj.id !== prevState.selectedProjectID
       );
       return {
         ...prevState,
@@ -77,6 +89,9 @@ function App() {
       <SelectedProject
         project={selectedProject}
         onDeleteProject={handleDeleteProject}
+        onAddTask={handleAddTask}
+        onDeleteTask={handleDeleteTask}
+        tasks={projectsState.tasks}
       />
     );
 
