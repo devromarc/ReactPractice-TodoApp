@@ -20,7 +20,18 @@ function App() {
     });
   }
 
-  function handleDeleteTask(index) {}
+  function handleDeleteTask(index) {
+    setProjectsState((prevState) => {
+      const updatedTasks = prevState.tasks.filter(
+        (task, taskIndex) => taskIndex !== index
+      );
+
+      return {
+        ...prevState,
+        tasks: updatedTasks,
+      };
+    });
+  }
 
   function handleAddingNewProject() {
     setProjectsState((prevState) => {

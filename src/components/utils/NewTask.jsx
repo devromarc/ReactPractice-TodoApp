@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const NewTask = ({ onAddTask, onDeleteTask }) => {
+const NewTask = ({ onAddTask }) => {
   const [task, setTask] = useState("");
 
   function handleTaskChange(event) {
@@ -9,6 +9,9 @@ const NewTask = ({ onAddTask, onDeleteTask }) => {
   }
 
   function onAddTaskFn(task) {
+    if (task.trim() === "") {
+      return;
+    }
     onAddTask(task);
     setTask("");
   }
