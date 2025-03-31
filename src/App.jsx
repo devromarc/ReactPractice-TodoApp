@@ -33,10 +33,13 @@ function App() {
   if (projectsState.selectedProjectID === null) {
     content = <NewProject onNewProject={handleNewProject} />;
   }
-  console.log(projectsState.projects);
+
   return (
     <main className="h-screen my-8 flex gap-8">
-      <SideBar onAddProject={handleAddingNewProject} />
+      <SideBar
+        onAddProject={handleAddingNewProject}
+        projects={projectsState.projects}
+      />
       {content}
     </main>
   );

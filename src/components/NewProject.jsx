@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import Input from "./utils/Input";
 import { nanoid } from "nanoid";
 
