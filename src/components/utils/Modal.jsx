@@ -17,7 +17,9 @@ const Modal = ({ children, ref, buttonCaption }) => {
     >
       {children}
       <form className="mt-4 text-right" method="dialog">
-        <button>{buttonCaption}</button>
+        <button className="px-4 py-2 text-xs md:text-base rounded-md bg-stone-700 text-stone-400 hover:bg-stone-600 hover:text-stone-100">
+          {buttonCaption}
+        </button>
       </form>
     </dialog>,
     document.querySelector("#modal-root")
