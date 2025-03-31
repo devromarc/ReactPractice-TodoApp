@@ -23,7 +23,17 @@ function App() {
     setProjectsState((prevState) => ({
       ...prevState,
       projects: [...prevState.projects, newProject],
+      selectedProjectID: undefined,
     }));
+  }
+
+  function handleCancelBtn() {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        selectedProjectID: undefined,
+      };
+    });
   }
 
   let content;
@@ -31,7 +41,9 @@ function App() {
     content = <LandingPage onAddProject={handleAddingNewProject} />;
   }
   if (projectsState.selectedProjectID === null) {
-    content = <NewProject onNewProject={handleNewProject} />;
+    content = (
+      <NewProject onNewProject={handleNewProject} onCancel={handleCancelBtn} />
+    );
   }
 
   return (
