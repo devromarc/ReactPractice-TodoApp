@@ -2,7 +2,7 @@ import React from "react";
 import logo from "/logo.png";
 import Button from "./utils/Button";
 
-const LandingPage = () => {
+const LandingPage = ({ onAddProject }) => {
   return (
     <div className="mt-24 text-center w-2/3">
       <img
@@ -17,7 +17,7 @@ const LandingPage = () => {
         Select Project or Get Started with a New one.
       </p>
       <p className="mt-8">
-        <Button>Create a New Project</Button>
+        <Button onClick={onAddProject}>Create a New Project</Button>
       </p>
     </div>
   );
