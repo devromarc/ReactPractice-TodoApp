@@ -9,7 +9,6 @@ function App() {
     projects: [],
   });
 
-  // const isThereProjects = projectList.length <= 0;
   function handleAddingNewProject() {
     setProjectsState((prevState) => {
       return {
@@ -20,18 +19,24 @@ function App() {
     });
   }
 
+  function handleNewProject(newProject) {
+    setProjectsState((prevState) => ({
+      ...prevState,
+      projects: [...prevState.projects, newProject],
+    }));
+  }
+
   let content;
   if (projectsState.selectedProjectID === undefined) {
     content = <LandingPage onAddProject={handleAddingNewProject} />;
   }
   if (projectsState.selectedProjectID === null) {
-    content = <NewProject />;
+    content = <NewProject onNewProject={handleNewProject} />;
   }
-
+  console.log(projectsState.projects);
   return (
     <main className="h-screen my-8 flex gap-8">
       <SideBar onAddProject={handleAddingNewProject} />
-
       {content}
     </main>
   );
