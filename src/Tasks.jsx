@@ -11,14 +11,14 @@ const Tasks = ({ onAddTask, onDeleteTask, tasks }) => {
   } else {
     content = (
       <ul className="p-4 mt-8 rounded-md bg-stone-100 ">
-        {tasks.map((task, index) => (
+        {tasks.map(({ text, id }) => (
           <li
-            key={index}
+            key={id}
             className="flex justify-between my-7 border-b-2 border-stone-300 "
           >
-            <p>{task}</p>
+            <p>{text}</p>
             <button
-              onClick={() => onDeleteTask(index)}
+              onClick={() => onDeleteTask(id)}
               className="text-stone-700 hover:text-red-500"
             >
               Delete
