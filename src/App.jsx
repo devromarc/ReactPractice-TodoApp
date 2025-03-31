@@ -50,6 +50,7 @@ function App() {
     (proj) => proj.id === projectsState.selectedProjectID
   );
 
+  // get the id of the selected project inside the selectedproject component and use it to make a new array that has been filtered using the id
   function handleDeleteProject(id) {
     setProjectsState((prevState) => {
       const updatedProjectList = prevState.projects.filter(
@@ -85,6 +86,7 @@ function App() {
         onAddProject={handleAddingNewProject}
         projects={projectsState.projects}
         onSelectProject={handleSelectProject}
+        selectedProjectID={projectsState.selectedProjectID}
       />
       {content}
     </main>
