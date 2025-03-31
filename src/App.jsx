@@ -50,6 +50,19 @@ function App() {
     (proj) => proj.id === projectsState.selectedProjectID
   );
 
+  function handleDeleteProject(id) {
+    setProjectsState((prevState) => {
+      const updatedProjectList = prevState.projects.filter(
+        (proj) => proj.id !== id
+      );
+      return {
+        ...prevState,
+        projects: updatedProjectList,
+        selectedProjectID: undefined,
+      };
+    });
+  }
+
   let content;
 
   if (projectsState.selectedProjectID === undefined) {
@@ -59,7 +72,12 @@ function App() {
       <NewProject onNewProject={handleNewProject} onCancel={handleCancelBtn} />
     );
   } else if (selectedProject)
-    content = <SelectedProject project={selectedProject} />;
+    content = (
+      <SelectedProject
+        project={selectedProject}
+        onDeleteProject={handleDeleteProject}
+      />
+    );
 
   return (
     <main className="h-screen my-8 flex gap-8">
