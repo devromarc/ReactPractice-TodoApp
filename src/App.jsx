@@ -3,6 +3,7 @@ import LandingPage from "./components/LandingPage";
 import NewProject from "./components/NewProject";
 import SideBar from "./components/SideBar";
 import SelectedProject from "./components/SelectedProject";
+import { nanoid } from "nanoid";
 
 function App() {
   const [projectsState, setProjectsState] = useState({
@@ -12,7 +13,8 @@ function App() {
   });
 
   function handleAddTask(text) {
-    const taskId = Math.random();
+    const taskId = nanoid();
+    // need to add a project id so that the tasks doesnt share across all projects.
     const newTask = {
       text: text,
       id: taskId,
@@ -26,6 +28,7 @@ function App() {
     });
   }
 
+  // filter the tasks array base on the project id that match
   const selectedTask = projectsState.tasks.filter(
     (task) => task.projectId === projectsState.selectedProjectID
   );
